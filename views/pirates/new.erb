@@ -1,1 +1,23 @@
 <h1>Make your form here</h1>
+<form action="/pirates" method="post">
+  <fieldset title="Pirate">
+    <legend>Pirate</legend>
+    <label for="pirate_name">Pirate Name: </label><input type="text" name="pirate[name]" id="pirate_name"><br>
+    <label for="pirate_weight">Pirate Weight: </label><input type="text" name="pirate[weight]" id="pirate_weight"><br>
+    <label for="pirate_height">Pirate Height: </label><input type="text" name="pirate[height]" id="pirate_height"><br>
+  </fieldset>
+  <br>
+  <fieldset title="Ships">
+    <% numbers = [1, 2] %>
+    <legend>Ships</legend>
+    <% numbers.each do |number| %>
+        <label for="ship_name">#<%=number%> Ship Name: </label><input type="text" name="pirate[ships][][name]" id="ship_name_<%=number%>"><br>
+        <label for="ship_type">#<%=number%> Ship Type: </label><input type="text" name="pirate[ships][][type]" id="ship_type_<%=number%>"><br>
+        <label for="ship_booty">#<%=number%> Ship
+          Booty: </label><input type="text" name="pirate[ships][][booty]" id="ship_booty_<%=number%>"><br>
+        <br>
+    <% end %>
+  </fieldset>
+
+  <input type="submit" id="submit" value="Submit">
+</form>
